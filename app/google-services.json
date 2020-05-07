@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "698723465864",
+    "firebase_url": "https://ledger-system-182d1.firebaseio.com",
+    "project_id": "ledger-system-182d1",
+    "storage_bucket": "ledger-system-182d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698723465864:android:d1b129507e39c1f35f7d3d",
+        "android_client_info": {
+          "package_name": "com.example.ledgersystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698723465864-vh9mn4smhbajr8c7fiaf60geiut4liiu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ledgersystem",
+            "certificate_hash": "ae66e0802c0f32777bcdaa8456eaaabb6dbbf5aa"
+          }
+        },
+        {
+          "client_id": "698723465864-9poaikfhbd6doenag43mukp1rpo6pq8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXubCcM8cWlWdQwZV9FlGmcl7esoIilc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698723465864-9poaikfhbd6doenag43mukp1rpo6pq8r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

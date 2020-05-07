@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/roundcorner"
+        android:backgroundTint="#E3DDDD"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="394dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="24dp"
+        android:id="@+id/impbtn"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/spl"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/ic_split" />
+
+        <Button
+            android:id="@+id/req"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/req" />
+
+        <Button
+            android:id="@+id/cg"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/group" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
