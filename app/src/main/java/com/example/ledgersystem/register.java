@@ -41,10 +41,13 @@ public class register extends AppCompatActivity {
         v.startAnimation(buttonClick);
         Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         vv.vibrate(100);
+
+
         mAuth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-               if(task.isSuccessful()){
+
+                if(task.isSuccessful()){
                    Toast.makeText(getApplicationContext(),"Successfully Registered",Toast.LENGTH_SHORT).show();
                    String na=username.getText().toString();
                    DatabaseReference dref=fb.getReference("Users");
