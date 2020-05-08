@@ -17,15 +17,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
-    EditText email,pass;
+    EditText name,pass;
+    String email;
     FirebaseAuth fauth;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email=findViewById(R.id.editText);
+        name=findViewById(R.id.editText);
         pass=findViewById(R.id.editText2);
         fauth=FirebaseAuth.getInstance();
     }
@@ -37,29 +44,45 @@ public class login extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),register.class);
         startActivity(i);
     }
-    public void home(View v){
+    public void home(View v) {
         AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
         v.startAnimation(buttonClick);
         Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         vv.vibrate(100);
-        fauth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
+        DatabaseReference myRef = database.getReference("Users");
+        myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    SharedPreferences sf= getSharedPreferences("Login data",MODE_PRIVATE);
-                    SharedPreferences.Editor edit= sf.edit();
-                    edit.putInt("islogged",1);
-                    edit.putString("user",email.getText().toString());
-                    edit.commit();
-                    Intent i= new Intent(getApplicationContext(),home.class);
-                    startActivity(i);
-                    finish();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
-                }
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                email=dataSnapshot.getValue().toString();
+                fauth.signInWithEmailAndPassword(email,pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            SharedPreferences sf= getSharedPreferences("Login data",MODE_PRIVATE);
+                            SharedPreferences.Editor edit= sf.edit();
+                            edit.putInt("islogged",1);
+                            edit.putString("user",name.getText().toString());
+                            edit.commit();
+                            Intent i= new Intent(getApplicationContext(),home.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
             }
         });
+
+
+
 
     }
 }

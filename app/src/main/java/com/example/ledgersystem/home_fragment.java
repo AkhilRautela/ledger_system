@@ -35,6 +35,7 @@ public class home_fragment extends Fragment {
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
                 Toast.makeText(getActivity().getApplicationContext(),"Split Bill",Toast.LENGTH_SHORT).show();
+
             }
         });
         req.setOnClickListener(new View.OnClickListener() {
