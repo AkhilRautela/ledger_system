@@ -49,37 +49,45 @@ public class login extends AppCompatActivity {
         v.startAnimation(buttonClick);
         Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         vv.vibrate(100);
-        DatabaseReference myRef = database.getReference("Users");
-        myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                email=dataSnapshot.getValue().toString();
-                fauth.signInWithEmailAndPassword(email,pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            SharedPreferences sf= getSharedPreferences("Login data",MODE_PRIVATE);
-                            SharedPreferences.Editor edit= sf.edit();
-                            edit.putInt("islogged",1);
-                            edit.putString("user",name.getText().toString());
-                            edit.commit();
-                            Intent i= new Intent(getApplicationContext(),home.class);
-                            startActivity(i);
-                            finish();
+        if(name.getText().toString().equals("")||pass.getText().toString().equals(""))
+        {
+            Toast.makeText(getApplicationContext(),"Null Credentials",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            DatabaseReference myRef = database.getReference("Users");
+            myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    email=dataSnapshot.getValue().toString();
+                    fauth.signInWithEmailAndPassword(email,pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                SharedPreferences sf= getSharedPreferences("Login data",MODE_PRIVATE);
+                                SharedPreferences.Editor edit= sf.edit();
+                                edit.putInt("islogged",1);
+                                edit.putString("user",name.getText().toString());
+                                edit.commit();
+                                Intent i= new Intent(getApplicationContext(),home.class);
+                                startActivity(i);
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
-                        }
-                    }
-                });
+                    });
 
-            }
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(),"INCORRECT CREDENTIALS",Toast.LENGTH_SHORT);
+                }
+            });
+
+        }
+
 
 
 
