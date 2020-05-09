@@ -52,6 +52,8 @@ public class home_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
+                getActivity().getSupportFragmentManager().popBackStack();
+               // getActivity().getSupportFragmentManager().beginTransaction().add(R.id.main_hu_container,new splitbill_fragment()).commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Split Bill",Toast.LENGTH_SHORT).show();
 
             }
@@ -89,10 +91,6 @@ public class home_fragment extends Fragment {
                 false);
         recycle_groups.setLayoutManager(HorizontalLayout);
         recycle_groups.setAdapter(general_profileadapter);
-
-
-
-
         return v;
     }
 
