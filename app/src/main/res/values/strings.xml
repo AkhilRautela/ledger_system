@@ -13,4 +13,16 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+
+
+    <string-array name="group_names">
+        <item>group1</item>
+        <item>group2</item>
+        <item>group3</item>
+        <item>group4</item>
+        <item>group5</item>
+        <item>group6</item>
+        <item>group7</item>
+    </string-array>
+
 </resources>

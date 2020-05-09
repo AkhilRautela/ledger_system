@@ -48,16 +48,21 @@ public class home extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
         SharedPreferences sf=getSharedPreferences("Login data",MODE_PRIVATE);
         String s=sf.getString("user","unable to fetch");
+
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         View l=navigationView.getHeaderView(0);
         lt=l.findViewById(R.id.nameo);
         lt.setText(s);
+
         ConstraintLayout c= findViewById(R.id.bcontrol);
+
         Button b1=c.findViewById(R.id.navbarcoming);
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

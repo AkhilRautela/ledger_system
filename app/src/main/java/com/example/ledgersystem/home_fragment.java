@@ -1,5 +1,6 @@
 package com.example.ledgersystem;
 
+import androidx.constraintlayout.solver.widgets.ConstraintHorizontalLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -8,8 +9,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +23,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class home_fragment extends Fragment {
-    Button spl,req,grp;
+    private String[] gnames = new String[4];
+    private int[] fake;
+    private static final String TAG = "TAG";
+
+    private Button spl,req,grp;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         View v= inflater.inflate(R.layout.frag_home, container, false);
@@ -27,6 +36,15 @@ public class home_fragment extends Fragment {
         spl=l.findViewById(R.id.spl);
         req=l.findViewById(R.id.req);
         grp=l.findViewById(R.id.cg);
+
+        RecyclerView recycle_groups = v.findViewById(R.id.recycle_group);
+
+
+        // initializing variables for the group adapter (just dummy)
+        // todo : fetching from the database has to be done. currently using dummy data.
+
+
+
         spl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +76,37 @@ public class home_fragment extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(),"Create Group",Toast.LENGTH_SHORT).show();
             }
         });
+
+        // setting up adapter.........
+        Log.e(TAG, "onCreateView: "+getContext());
+
+        general_profileAdapter general_profileadapter = new general_profileAdapter(getContext(),gnames);
+        Context ctx = getContext();
+        LinearLayoutManager HorizontalLayout
+                = new LinearLayoutManager(
+                ctx,
+                LinearLayoutManager.HORIZONTAL,
+                false);
+        recycle_groups.setLayoutManager(HorizontalLayout);
+        recycle_groups.setAdapter(general_profileadapter);
+
+
+
+
         return v;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        gnames[0] = "alpha";
+        gnames[1] = "beta";
+        gnames[2] = "gamma";
+        gnames[3] = "theta";
+
+
+
+
+
+    }
 }
