@@ -42,7 +42,7 @@ public class splitbill_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitnext_fragment()).commit();
+               // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitnext_fragment()).commit();
             }
         });
         return  split;

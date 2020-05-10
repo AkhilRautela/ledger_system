@@ -59,7 +59,7 @@ public class home extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).addToBackStack(null).commit();
         SharedPreferences sf=getSharedPreferences("Login data",MODE_PRIVATE);
         String s=sf.getString("user","unable to fetch");
 
