@@ -122,12 +122,14 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="109dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
+            android:background="@drawable/rounded_button"
+            android:drawableBottom="@drawable/rounded_button"
             android:onClick="login"
             android:text="SignUP"
-            android:textColor="#000000" />
+            android:textColor="#FCFBFB" />
 
     </LinearLayout>
 
