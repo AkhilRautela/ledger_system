@@ -32,7 +32,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contacs Registered with us"
+        android:text="Contacts Registered with us"
         app:layout_constraintBottom_toTopOf="@+id/contactlist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

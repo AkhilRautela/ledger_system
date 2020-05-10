@@ -1,9 +1,13 @@
 package com.example.ledgersystem;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -25,12 +29,22 @@ public class splitbill_fragment extends Fragment {
             li.add(new listforadapter(s, dat.get(s)));
             System.out.println(s + dat.get(s));
         }
-
         View split = inflater.inflate(R.layout.frag_splitbill, container, false);
         RecyclerView cont = split.findViewById(R.id.contactlist);
         cont.setAdapter(new multicontactselector_adapter(getActivity().getBaseContext(), li));
         LinearLayoutManager manager = new LinearLayoutManager(getActivity().getApplicationContext());
         cont.setLayoutManager(manager);
+        Button b= split.findViewById(R.id.button4);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                v.startAnimation(buttonClick);
+                Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vv.vibrate(100);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitnext_fragment()).commit();
+            }
+        });
         return  split;
     }
 }

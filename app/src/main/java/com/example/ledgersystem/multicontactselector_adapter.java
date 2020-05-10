@@ -2,9 +2,11 @@ package com.example.ledgersystem;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.Adapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +49,10 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                v.startAnimation(buttonClick);
+                Vibrator vv = (Vibrator) app.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vv.vibrate(100);
                 if(ekobject.isIsselected()){
                     ekobject.setIsselected(false);
                 }
