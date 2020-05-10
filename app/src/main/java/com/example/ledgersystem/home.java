@@ -45,6 +45,7 @@ public class home extends AppCompatActivity {
             super.onBackPressed();
         }
         else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
             getSupportFragmentManager().popBackStack();
         }
 
