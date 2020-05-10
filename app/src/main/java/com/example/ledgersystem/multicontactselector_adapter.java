@@ -3,12 +3,14 @@ package com.example.ledgersystem;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-/*public class multicontactselector_adapter extends RecyclerView.Adapter<multicontactselector_adapter.ViewHolder> {
+public class multicontactselector_adapter extends RecyclerView.Adapter<multicontactselector_adapter.ViewHolder> {
 
-
+    List<contact>
     @NonNull
     @Override
     public multicontactselector_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -25,4 +27,3 @@ import androidx.recyclerview.widget.RecyclerView;
         return 0;
     }
 }
-*/
