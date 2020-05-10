@@ -30,14 +30,14 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
         TextView phoneno;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name=itemView.findViewById(R.id.textView5);
-            phoneno=itemView.findViewById(R.id.textView6);
+            name=itemView.findViewById(R.id.contact_name_d);
+            phoneno=itemView.findViewById(R.id.contact_number_d);
         }
     }
     @NonNull
     @Override
     public multicontactselector_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v=LayoutInflater.from(app).inflate(R.layout.onerow,parent,false);
+        View v=LayoutInflater.from(app).inflate(R.layout.contact_child,parent,false);
         return new ViewHolder(v);
     }
 
