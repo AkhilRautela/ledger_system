@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:alpha="0.8"
-    android:background="#191916">
+    android:alpha="0.9"
+    android:background="#5E5E55">
 
 
     <androidx.recyclerview.widget.RecyclerView

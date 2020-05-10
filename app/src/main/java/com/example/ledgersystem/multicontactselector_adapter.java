@@ -1,11 +1,13 @@
 package com.example.ledgersystem;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -39,9 +41,27 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
 
     @Override
     public void onBindViewHolder(@NonNull multicontactselector_adapter.ViewHolder holder, int position) {
-        listforadapter ekobject=data.get(position);
+        final listforadapter ekobject=data.get(position);
         holder.name.setText(ekobject.getName());
         holder.phoneno.setText(ekobject.getPhone());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ekobject.isIsselected()){
+                    ekobject.setIsselected(false);
+                }
+                else{
+                    ekobject.setIsselected(true);
+                }
+                if(ekobject.isIsselected()){
+                    v.setBackgroundColor(Color.RED);
+                    Toast.makeText(app.getApplicationContext(),ekobject.getName()+" Selected",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    v.setBackgroundColor(Color.BLUE);
+                }
+            }
+        });
     }
 
     @Override
