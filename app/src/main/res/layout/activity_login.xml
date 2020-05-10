@@ -83,17 +83,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
+            android:background="@drawable/rounded_button"
             android:onClick="home"
             android:text="Login"
-            android:textColor="#000000" />
+            android:textColor="#FCF7F7" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_button"
             android:onClick="register"
             android:text="Sign Up"
-            android:textColor="#000000" />
+            android:textColor="#EFE7E7" />
 
     </LinearLayout>
 
