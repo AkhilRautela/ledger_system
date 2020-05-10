@@ -52,7 +52,7 @@ public class home_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.main_hu_container,new splitbill_fragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.main_hu_container,new splitbill_fragment()).addToBackStack(null).commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Split Bill",Toast.LENGTH_SHORT).show();
 
             }
@@ -64,6 +64,9 @@ public class home_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
+
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new Contact_Fragment()).addToBackStack(null).commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Request",Toast.LENGTH_SHORT).show();
             }
         });
@@ -100,10 +103,6 @@ public class home_fragment extends Fragment {
         gnames[1] = "beta";
         gnames[2] = "gamma";
         gnames[3] = "theta";
-
-
-
-
 
     }
 }
