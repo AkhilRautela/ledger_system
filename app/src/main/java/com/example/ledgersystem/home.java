@@ -62,7 +62,6 @@ public class home extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).addToBackStack(null).commit();
         SharedPreferences sf=getSharedPreferences("Login data",MODE_PRIVATE);
         String s=sf.getString("user","unable to fetch");
-
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         View l=navigationView.getHeaderView(0);
