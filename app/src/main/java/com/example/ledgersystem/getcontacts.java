@@ -35,13 +35,15 @@ public class getcontacts {
 
         for ( j = 0; j < i; j++) {
             System.out.println(pnumber[j]);
+            final String num=pnumber[j];
             df.child(pnumber[j]).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.getValue()!=null){
                         name=dataSnapshot.getValue().toString();
                         System.out.println(name);
-                        dcontacts.put(name,pnumber[j]);
+                        dcontacts.put(name,num);
+                        System.out.println(num);
                     }
 
                 }

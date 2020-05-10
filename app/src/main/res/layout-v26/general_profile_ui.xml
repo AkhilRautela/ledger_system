@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:background="@null"
     >
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:background="@null">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@null">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/prof_photo"
@@ -17,6 +21,7 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
+                android:background="@null"
                 android:src="@mipmap/ic_launcher_round"
 
                 />
