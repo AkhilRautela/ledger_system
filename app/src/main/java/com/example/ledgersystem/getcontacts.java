@@ -27,7 +27,7 @@ public class getcontacts {
         Cursor phones = s.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
         while (phones.moveToNext()) {
             String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-            pnumber[i] = phoneNumber;
+            pnumber[i] = phoneNumber.replaceAll("\\D", "");
             i++;
         }
 
