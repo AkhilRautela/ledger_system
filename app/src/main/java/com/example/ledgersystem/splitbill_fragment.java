@@ -22,9 +22,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class splitbill_fragment extends Fragment {
+    List<listforadapter> li = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Map<String, String> dat = getcontacts.dcontacts;
-        List<listforadapter> li = new ArrayList<>();
         for (String s : dat.keySet()) {
             li.add(new listforadapter(s, dat.get(s)));
             System.out.println(s + dat.get(s));
@@ -42,6 +42,7 @@ public class splitbill_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
+                selectedsplitdata s= new selectedsplitdata(li);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitnext_fragment()).commit();
             }
         });
