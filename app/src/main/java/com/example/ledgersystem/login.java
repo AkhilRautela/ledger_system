@@ -11,6 +11,7 @@ import android.os.Vibrator;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 public class login extends AppCompatActivity {
     EditText name,pass;
     String email;
+    ProgressBar progressBar;
+
     FirebaseAuth fauth;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     @Override
@@ -49,6 +52,15 @@ public class login extends AppCompatActivity {
         v.startAnimation(buttonClick);
         Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         vv.vibrate(100);
+        if(name.getText().toString().equals("")||pass.getText().toString().equals(""))
+        {
+            Toast.makeText(getApplicationContext(), "NULL CREDENTIALS", Toast.LENGTH_SHORT).show();
+
+        }
+        else
+        {
+            progressBar=(ProgressBar) findViewById(R.id.progressBar1);
+            progressBar.setVisibility(View.VISIBLE);
             DatabaseReference myRef = database.getReference("Users");
             myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
                 @Override
@@ -67,7 +79,7 @@ public class login extends AppCompatActivity {
                                 startActivity(i);
                                 finish();
                             } else {
-                                Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT);
+                                Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -76,12 +88,14 @@ public class login extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
                 }
             });
 
 
 
+
+        }
 
     }
 }

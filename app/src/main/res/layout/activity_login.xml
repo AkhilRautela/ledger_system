@@ -9,8 +9,8 @@
 
     <LinearLayout
 
-        android:layout_width="345dp"
-        android:layout_height="454dp"
+        android:layout_width="359dp"
+        android:layout_height="476dp"
         android:background="@drawable/roundcorner"
         android:backgroundTint="#FFFFFF"
         android:gravity="center"
@@ -20,74 +20,80 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326">
+        app:layout_constraintVertical_bias="0.298">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_marginBottom="5dp"
-            android:textSize="30sp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:text="Username"
             android:paddingLeft="10dp"
-            android:layout_gravity="left"/>
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="20"
-            android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="50dp"
+            android:ems="20"
+            android:hint="Username"
             android:inputType="textEmailAddress"
-            android:hint="Username" />
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"
             android:layout_gravity="left"
-            android:text="Password" />
+            android:paddingLeft="10dp"
+            android:text="Password"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:hint="Password"/>
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Login"
             android:onClick="home"
-            android:textColor="#000000"
-            />
+            android:text="Login"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
             android:onClick="register"
             android:text="Sign Up"
-            />
+            android:textColor="#000000" />
 
     </LinearLayout>
 
