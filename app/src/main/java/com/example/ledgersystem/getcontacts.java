@@ -31,11 +31,11 @@ public class getcontacts extends Thread {
         while (phones.moveToNext()) {
             String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             phoneNumber=phoneNumber.replaceAll("\\D", "");
-            if (phoneNumber.length()<8){
+            if (phoneNumber.length()<9){
                 continue;
             }
             if (phoneNumber.substring(0,2)=="91")
-                pnumber[i] =phoneNumber.substring(2,9);
+                pnumber[i] =phoneNumber.substring(2);
             else{
                 pnumber[i]=phoneNumber;
             }
