@@ -2,6 +2,7 @@ package com.example.ledgersystem;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.amulyakhare.textdrawable.TextDrawable;
 
 import org.w3c.dom.Text;
 
@@ -33,29 +36,7 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
     public contact_Adapter.contactHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater myInflater = LayoutInflater.from(ctx);
         View myView = myInflater.inflate(R.layout.contact_child,parent,false);
-        final contactHolder myHolder = new contactHolder(myView);
-
-        requestDialog = new Dialog(ctx);
-        requestDialog.setContentView(R.layout.dialog_req);
-        final TextView c_name = (TextView)requestDialog.findViewById(R.id.dialog_name_d);
-        final TextView c_no = requestDialog.findViewById(R.id.dialog_number_d);
-        final CircleImageView c_img =  requestDialog.findViewById(R.id.dialog_img_d);
-
-
-
-
-        myHolder.item_contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                c_name.setText(data.get(myHolder.getAdapterPosition()).getName());
-                c_no.setText(data.get(myHolder.getAdapterPosition()).getPhone());
-                c_img.setImageResource(R.drawable.ic_launcher_background);
-                Toast.makeText(ctx,"you click" + String.valueOf(myHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
-                requestDialog.show();
-            }
-        });
-
-        return myHolder;
+        return new contactHolder(myView);
 
     }
 
@@ -65,7 +46,23 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
         final listforadapter myListobj1 =data.get(position);
         holder.t1_name.setText(myListobj1.getName());
         holder.t2_number.setText(myListobj1.getPhone());
-        holder.contactimg.setImageResource(R.drawable.ic_launcher_background);
+        TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.GREEN);
+        holder.contactimg.setBackground(drawable);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestDialog = new Dialog(ctx);
+                requestDialog.setContentView(R.layout.dialog_req);
+                final TextView c_name = (TextView)requestDialog.findViewById(R.id.dialog_name_d);
+                final TextView c_no = requestDialog.findViewById(R.id.dialog_number_d);
+                final CircleImageView c_img =  requestDialog.findViewById(R.id.dialog_img_d);
+                c_name.setText(myListobj1.getName());
+                c_no.setText(myListobj1.getPhone());
+                TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.GREEN);
+                c_img.setBackground(drawable);
+                requestDialog.show();
+            }
+        });
     }
 
     @Override

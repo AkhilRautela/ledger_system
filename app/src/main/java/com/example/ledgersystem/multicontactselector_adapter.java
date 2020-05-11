@@ -11,11 +11,14 @@ import android.widget.Adapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+
 import java.util.List;
 import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class multicontactselector_adapter extends RecyclerView.Adapter<multicontactselector_adapter.ViewHolder> {
 
@@ -28,10 +31,12 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name;
         TextView phoneno;
+        CircleImageView civ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.contact_name_d);
             phoneno=itemView.findViewById(R.id.contact_number_d);
+            civ=itemView.findViewById(R.id.contact_img_d);
         }
     }
     @NonNull
@@ -46,6 +51,8 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
         final listforadapter ekobject=data.get(position);
         holder.name.setText(ekobject.getName());
         holder.phoneno.setText(ekobject.getPhone());
+        TextDrawable drawable = TextDrawable.builder().buildRound(ekobject.getName().substring(0,1).toUpperCase(),Color.GREEN);
+        holder.civ.setBackground(drawable);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

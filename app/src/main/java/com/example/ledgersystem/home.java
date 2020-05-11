@@ -92,6 +92,8 @@ public class home extends AppCompatActivity {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new notification_fragment()).commit();
+                getSupportFragmentManager().beginTransaction().addToBackStack("notification").commit();
             }
         });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

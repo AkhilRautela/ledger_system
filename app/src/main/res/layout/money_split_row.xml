@@ -4,32 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#837474"
-    android:alpha="0.98">
+    android:alpha="0.98"
+    android:background="#837474">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/contact_img_d"
-        android:layout_width="61dp"
-        android:layout_height="78dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="52dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView8"
-        android:textColor="#E1DE8E"
         android:layout_width="95dp"
         android:layout_height="59dp"
         android:gravity="center"
         android:text="TextView"
+        android:textColor="#E1DE8E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toEndOf="@+id/contact_img_d"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512" />
 
     <EditText
         android:id="@+id/editText4"
@@ -46,11 +47,11 @@
         android:id="@+id/imageView3"
         android:layout_width="475dp"
         android:layout_height="1dp"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/ic_line_11"
-        android:paddingBottom="0dp"
-        android:layout_marginBottom="0dp"/>
+        app:srcCompat="@drawable/ic_line_11" />
 </androidx.constraintlayout.widget.ConstraintLayout>
