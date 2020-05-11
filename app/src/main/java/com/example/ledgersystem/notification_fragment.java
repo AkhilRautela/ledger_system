@@ -43,7 +43,7 @@ public class notification_fragment extends Fragment {
                             for(DataSnapshot inside:snap.getChildren()){
                                 String name=inside.getKey();
                                 String money=inside.getValue().toString();
-                                ll.add(new notification_data(money,name,remark));
+                                ll.add(new notification_data(money,remark,name));
                             }
                     }
                 }
