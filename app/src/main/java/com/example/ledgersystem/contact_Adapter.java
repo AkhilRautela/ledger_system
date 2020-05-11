@@ -63,13 +63,17 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
                 final TextView c_no = requestDialog.findViewById(R.id.dialog_number_d);
                 final CircleImageView c_img =  requestDialog.findViewById(R.id.dialog_img_d);
                 Button b=requestDialog.findViewById(R.id.requestt);
+                final EditText money=requestDialog.findViewById(R.id.amt);
+                final EditText remark=requestDialog.findViewById(R.id.remark);
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         DatabaseReference dr= FirebaseDatabase.getInstance().getReference("Users");
                         SharedPreferences sf=ctx.getSharedPreferences("Login data",MODE_PRIVATE);
                         String s=sf.getString("user","unable to fetch");
-                      //  dr.child(s).child("Transactions").child("take money").child(myListobj1.getName()).setValue(.getMoney());
+                        dr.child(s).child("Transactions").child("take money").child(myListobj1.getName()).child(remark.getText().toString()).setValue(money.getText().toString());
+                        dr.child(myListobj1.getName()).child("Transactions").child("give money").child(s).child(remark.getText().toString()).setValue(money.getText().toString());
+                        requestDialog.dismiss();
                     }
                 });
                 c_name.setText(myListobj1.getName());

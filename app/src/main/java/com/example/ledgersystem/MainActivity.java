@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView aditya,dishant,mishra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getcontacts g=new getcontacts();
-        g.getphonenumbers(getApplicationContext());
+        getcontacts g=new getcontacts(getApplicationContext());
+        g.start();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);

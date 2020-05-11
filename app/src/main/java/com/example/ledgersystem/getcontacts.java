@@ -16,24 +16,28 @@ import java.util.Map;
 
 import androidx.annotation.NonNull;
 
-public class getcontacts {
+public class getcontacts extends Thread {
     String pnumber[] = new String[10000];
     int i = 0;
     int j;
     String name;
+    Context s;
     final static Map<String, String> dcontacts = new HashMap<String, String>();
-    public void getphonenumbers(Context s) {
-
+    getcontacts(Context s){
+        this.s=s;
+    }
+    public void run() {
         Cursor phones = s.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
         while (phones.moveToNext()) {
             String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             pnumber[i] = phoneNumber.replaceAll("\\D", "");
             i++;
         }
-
         DatabaseReference df = FirebaseDatabase.getInstance().getReference("Phonenumbers");
 
         for ( j = 0; j < i; j++) {
+            System.out.println(i);
+            System.out.println(j);
             System.out.println(pnumber[j]);
             final String num=pnumber[j];
             df.child(pnumber[j]).addValueEventListener(new ValueEventListener() {
@@ -44,7 +48,14 @@ public class getcontacts {
                         System.out.println(name);
                         dcontacts.put(name,num);
                         System.out.println(num);
+                        try{
+                        Thread.sleep(100);
                     }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
 
                 }
 

@@ -17,4 +17,5 @@ public class about_fragment extends Fragment {
         return inflater.inflate(R.layout.frag_about_user, container, false);
     }
 
+
 }
