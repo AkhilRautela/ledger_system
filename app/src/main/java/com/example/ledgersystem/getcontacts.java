@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 public class getcontacts extends Thread {
     String pnumber[] = new String[10000];
     int i = 0;
-    int j;
+    int j = 0;
     String name;
     Context s;
     final static Map<String, String> dcontacts = new HashMap<String, String>();
@@ -30,7 +30,15 @@ public class getcontacts extends Thread {
         Cursor phones = s.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
         while (phones.moveToNext()) {
             String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-            pnumber[i] = phoneNumber.replaceAll("\\D", "");
+            phoneNumber=phoneNumber.replaceAll("\\D", "");
+            if (phoneNumber.length()<8){
+                continue;
+            }
+            if (phoneNumber.substring(0,2)=="91")
+                pnumber[i] =phoneNumber.substring(2,9);
+            else{
+                pnumber[i]=phoneNumber;
+            }
             i++;
         }
         DatabaseReference df = FirebaseDatabase.getInstance().getReference("Phonenumbers");
