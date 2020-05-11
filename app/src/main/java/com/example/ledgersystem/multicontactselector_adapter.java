@@ -60,11 +60,13 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
                     ekobject.setIsselected(true);
                 }
                 if(ekobject.isIsselected()){
-                    v.setBackgroundColor(Color.RED);
+                    v.setBackgroundColor(Color.rgb(90,90,90));
+                    v.setAlpha((float) 0.8);
                     Toast.makeText(app.getApplicationContext(),ekobject.getName()+" Selected",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    v.setBackgroundColor(Color.BLUE);
+                    v.setAlpha((float) 1.0);
+                    v.setBackgroundColor(Color.WHITE);
                 }
             }
         });
