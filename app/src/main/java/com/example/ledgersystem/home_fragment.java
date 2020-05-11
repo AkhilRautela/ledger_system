@@ -4,6 +4,7 @@ import androidx.constraintlayout.solver.widgets.ConstraintHorizontalLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,8 +23,19 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
+
 public class home_fragment extends Fragment {
-    private String[] gnames = new String[4];
+    List<String> gnames=new ArrayList<>();
     private int[] fake;
     private static final String TAG = "TAG";
 
@@ -37,7 +49,7 @@ public class home_fragment extends Fragment {
         req=l.findViewById(R.id.req);
         grp=l.findViewById(R.id.cg);
 
-        RecyclerView recycle_groups = v.findViewById(R.id.recycle_group);
+        final RecyclerView recycle_groups = v.findViewById(R.id.recycle_group);
 
 
         // initializing variables for the group adapter (just dummy)
@@ -83,25 +95,44 @@ public class home_fragment extends Fragment {
         // setting up adapter.........
         Log.e(TAG, "onCreateView: "+getContext());
 
-        general_profileAdapter general_profileadapter = new general_profileAdapter(getContext(),gnames);
-        Context ctx = getContext();
-        LinearLayoutManager HorizontalLayout
-                = new LinearLayoutManager(
-                ctx,
-                LinearLayoutManager.HORIZONTAL,
-                false);
-        recycle_groups.setLayoutManager(HorizontalLayout);
-        recycle_groups.setAdapter(general_profileadapter);
+        DatabaseReference db= FirebaseDatabase.getInstance().getReference("Users");
+        SharedPreferences sf=getActivity().getSharedPreferences("Login data",MODE_PRIVATE);
+        String s=sf.getString("user","unable to fetch");
+        db.child(s).child("Transactions").child("take money").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot!=null){
+                    for(DataSnapshot dd:dataSnapshot.getChildren()){
+                        String s=dd.getKey();
+                        for(DataSnapshot fg:dd.getChildren()){
+                            gnames.add(s);
+                        }
+                    }
+                }
+                general_profileAdapter general_profileadapter = new general_profileAdapter(getContext(),gnames);
+                Context ctx = getContext();
+                LinearLayoutManager HorizontalLayout
+                        = new LinearLayoutManager(
+                        ctx,
+                        LinearLayoutManager.HORIZONTAL,
+                        false);
+                recycle_groups.setLayoutManager(HorizontalLayout);
+                recycle_groups.setAdapter(general_profileadapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         return v;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gnames[0] = "alpha";
-        gnames[1] = "beta";
-        gnames[2] = "gamma";
-        gnames[3] = "theta";
+
+
 
 
 

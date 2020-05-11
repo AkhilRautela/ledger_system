@@ -34,8 +34,8 @@
 
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="107dp"
-        android:layout_height="38dp"
+        android:layout_width="111dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
