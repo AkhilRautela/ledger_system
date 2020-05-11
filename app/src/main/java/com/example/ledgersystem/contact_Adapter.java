@@ -2,16 +2,21 @@ package com.example.ledgersystem;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -20,6 +25,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contactHolder> {
     Context ctx;
@@ -37,7 +44,6 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
         LayoutInflater myInflater = LayoutInflater.from(ctx);
         View myView = myInflater.inflate(R.layout.contact_child,parent,false);
         return new contactHolder(myView);
-
     }
 
     @Override
@@ -56,6 +62,16 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
                 final TextView c_name = (TextView)requestDialog.findViewById(R.id.dialog_name_d);
                 final TextView c_no = requestDialog.findViewById(R.id.dialog_number_d);
                 final CircleImageView c_img =  requestDialog.findViewById(R.id.dialog_img_d);
+                Button b=requestDialog.findViewById(R.id.requestt);
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DatabaseReference dr= FirebaseDatabase.getInstance().getReference("Users");
+                        SharedPreferences sf=ctx.getSharedPreferences("Login data",MODE_PRIVATE);
+                        String s=sf.getString("user","unable to fetch");
+                      //  dr.child(s).child("Transactions").child("take money").child(myListobj1.getName()).setValue(.getMoney());
+                    }
+                });
                 c_name.setText(myListobj1.getName());
                 c_no.setText(myListobj1.getPhone());
                 TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.GREEN);
