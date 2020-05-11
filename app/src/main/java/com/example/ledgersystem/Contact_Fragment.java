@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -38,7 +40,6 @@ public class Contact_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_contact_, container, false);
         searchButton = (Button)rootView.findViewById(R.id.cont_search);
-        searchBarText = (EditText)rootView.findViewById(R.id.edit_search);
         contact_list = (RecyclerView)rootView.findViewById(R.id.contact_list);
 
         Map<String, String> data = getcontacts.dcontacts;
@@ -53,6 +54,15 @@ public class Contact_Fragment extends Fragment {
         contact_list.setAdapter(new contact_Adapter(getContext(),list_hai));
 
 
+        AutoCompleteTextView act=rootView.findViewById(R.id.yoyo_search);
+        String dat[]=new String[getcontacts.dcontacts.size()];
+        int count=0;
+        for(String x:getcontacts.dcontacts.keySet()){
+            dat[count]=x;
+            count++;
+            System.out.println(count+" "+x);
+        }
+        act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dat));
      return rootView;
     }
 

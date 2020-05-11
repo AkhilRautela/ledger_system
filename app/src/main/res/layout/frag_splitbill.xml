@@ -29,13 +29,13 @@
             android:layout_marginStart="10dp"
             android:background="@drawable/ic_search" />
 
-        <EditText
-            android:id="@+id/editText3"
+        <AutoCompleteTextView
+            android:id="@+id/select_search"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="center"
-            android:hint="Search name or number"
+            android:hint="Search using name"
             android:inputType="textPersonName"
             android:textColor="#000000" />
 

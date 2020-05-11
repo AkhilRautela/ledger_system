@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -30,6 +32,15 @@ public class splitbill_fragment extends Fragment {
             System.out.println(s + dat.get(s));
         }
         View split = inflater.inflate(R.layout.frag_splitbill, container, false);
+        AutoCompleteTextView act=split.findViewById(R.id.select_search);
+        String dut[]=new String[getcontacts.dcontacts.size()];
+        int count=0;
+        for(String x:getcontacts.dcontacts.keySet()){
+            dut[count]=x;
+            count++;
+            System.out.println(count+" "+x);
+        }
+        act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dut));
         RecyclerView cont = split.findViewById(R.id.contactlist);
         cont.setAdapter(new multicontactselector_adapter(getActivity().getBaseContext(), li));
         LinearLayoutManager manager = new LinearLayoutManager(getActivity().getApplicationContext());

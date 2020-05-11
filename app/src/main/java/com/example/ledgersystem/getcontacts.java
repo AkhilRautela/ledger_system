@@ -56,12 +56,6 @@ public class getcontacts extends Thread {
                         System.out.println(name);
                         dcontacts.put(name,num);
                         System.out.println(num);
-                        try{
-                        Thread.sleep(100);
-                    }
-                        catch (Exception e){
-                            e.printStackTrace();
-                        }
                     }
 
 
@@ -74,7 +68,6 @@ public class getcontacts extends Thread {
             });
 
         }
-
 
     }
 }

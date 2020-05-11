@@ -19,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -43,7 +45,7 @@ public class home_fragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View v= inflater.inflate(R.layout.frag_home, container, false);
+        final View v= inflater.inflate(R.layout.frag_home, container, false);
         LinearLayout l=v.findViewById(R.id.impbtn);
         spl=l.findViewById(R.id.spl);
         req=l.findViewById(R.id.req);
@@ -77,7 +79,8 @@ public class home_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new Contact_Fragment()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new Contact_Fragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("request").commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Request",Toast.LENGTH_SHORT).show();
             }
         });
@@ -91,6 +94,7 @@ public class home_fragment extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(),"Create Group",Toast.LENGTH_SHORT).show();
             }
         });
+
 
         // setting up adapter.........
         Log.e(TAG, "onCreateView: "+getContext());
@@ -116,8 +120,18 @@ public class home_fragment extends Fragment {
                         ctx,
                         LinearLayoutManager.HORIZONTAL,
                         false);
+                AutoCompleteTextView act=v.findViewById(R.id.autocomptext);
+                String dat[]=new String[getcontacts.dcontacts.size()];
+                int count=0;
+                for(String x:getcontacts.dcontacts.keySet()){
+                    dat[count]=x;
+                    count++;
+                    System.out.println(count+" "+x);
+                }
+                act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);
+                List<String> gnames=new ArrayList<>();
             }
 
             @Override
