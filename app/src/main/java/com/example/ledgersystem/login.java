@@ -65,7 +65,13 @@ public class login extends AppCompatActivity {
             myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    email = dataSnapshot.getValue().toString();
+
+                    if(dataSnapshot.getValue()==null){
+                        Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                    else{
+                        email = dataSnapshot.getValue().toString();
                     fauth.signInWithEmailAndPassword(email, pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -84,7 +90,7 @@ public class login extends AppCompatActivity {
                         }
                     });
 
-                }
+                }}
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
