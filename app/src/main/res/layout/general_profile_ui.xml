@@ -3,19 +3,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/transparent"
+
     >
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="80dp"
-        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
         >
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@android:color/transparent"
+
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -26,6 +27,7 @@
                 android:scaleType="centerCrop"
                 android:background="@null"
                 android:src="@drawable/ic_launcher_background"
+
 
                 />
 
@@ -39,7 +41,6 @@
                 android:layout_marginTop="60dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
-                android:background="@android:color/transparent"
                 android:gravity="center"
                 android:text="dummy_name"
                 android:layout_marginVertical="25dp"/>
