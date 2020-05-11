@@ -60,7 +60,7 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
                     ekobject.setIsselected(true);
                 }
                 if(ekobject.isIsselected()){
-                    v.setBackgroundColor(Color.rgb(90,90,90));
+                    v.setBackgroundColor(Color.rgb(84,242,242));
                     v.setAlpha((float) 0.8);
                     Toast.makeText(app.getApplicationContext(),ekobject.getName()+" Selected",Toast.LENGTH_SHORT).show();
                 }
