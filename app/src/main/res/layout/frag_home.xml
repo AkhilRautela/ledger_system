@@ -129,7 +129,7 @@
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
-                android:text="Add Group" />
+                android:text="Group Chat" />
         </RelativeLayout>
 
     </LinearLayout>

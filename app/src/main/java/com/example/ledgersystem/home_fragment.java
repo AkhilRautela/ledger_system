@@ -88,6 +88,7 @@ public class home_fragment extends Fragment {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new group_chat()).addToBackStack(null).commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Create Group",Toast.LENGTH_SHORT).show();
             }
         });

@@ -56,7 +56,5 @@ public class Contact_Fragment extends Fragment {
      return rootView;
     }
 
-    public void onBackPressed(){
 
-    }
 }
