@@ -53,6 +53,15 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
         holder.phoneno.setText(ekobject.getPhone());
         TextDrawable drawable = TextDrawable.builder().buildRound(ekobject.getName().substring(0,1).toUpperCase(),Color.GREEN);
         holder.civ.setBackground(drawable);
+        if(ekobject.isIsselected()){
+            holder.itemView.setBackgroundColor(Color.rgb(84,242,242));
+            holder.itemView.setAlpha((float) 0.8);
+            Toast.makeText(app.getApplicationContext(),ekobject.getName()+" Selected",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            holder.itemView.setAlpha((float) 1.0);
+            holder.itemView.setBackgroundColor(Color.WHITE);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +74,7 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
                 }
                 else{
                     ekobject.setIsselected(true);
+
                 }
                 if(ekobject.isIsselected()){
                     v.setBackgroundColor(Color.rgb(84,242,242));
@@ -75,6 +85,7 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
                     v.setAlpha((float) 1.0);
                     v.setBackgroundColor(Color.WHITE);
                 }
+
             }
         });
     }

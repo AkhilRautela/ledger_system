@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class splitbill_fragment extends Fragment {
             System.out.println(s + dat.get(s));
         }
         View split = inflater.inflate(R.layout.frag_splitbill, container, false);
-        AutoCompleteTextView act=split.findViewById(R.id.select_search);
+        final AutoCompleteTextView act=split.findViewById(R.id.select_search);
         String dut[]=new String[getcontacts.dcontacts.size()];
         int count=0;
         for(String x:getcontacts.dcontacts.keySet()){
@@ -41,10 +42,28 @@ public class splitbill_fragment extends Fragment {
             System.out.println(count+" "+x);
         }
         act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dut));
+        Button search=split.findViewById(R.id.search_karo);
         RecyclerView cont = split.findViewById(R.id.contactlist);
-        cont.setAdapter(new multicontactselector_adapter(getActivity().getBaseContext(), li));
+        final multicontactselector_adapter sda=new multicontactselector_adapter(getActivity().getBaseContext(), li);
+        cont.setAdapter(sda);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity().getApplicationContext());
         cont.setLayoutManager(manager);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(listforadapter l:li){
+                    System.out.println(l.getName()+" "+act.getText().toString());
+                    if(l.getName().equals(act.getText().toString())){
+                        System.out.println("hello");
+                        l.setIsselected(true);
+                            Toast.makeText(getActivity().getApplicationContext(),l.getName()+" Selected",Toast.LENGTH_SHORT).show();
+                        sda.notifyDataSetChanged();
+                        break;
+                    }
+                }
+                Toast.makeText(getActivity().getApplicationContext(),"Name Not in Contact",Toast.LENGTH_SHORT).show();
+            }
+        });
         Button b= split.findViewById(R.id.button4);
         b.setOnClickListener(new View.OnClickListener() {
             @Override

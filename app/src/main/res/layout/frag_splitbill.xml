@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.024">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/search_karo"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="10dp"
@@ -43,8 +43,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactlist"
-        android:layout_width="352dp"
-        android:layout_height="508dp"
+        android:layout_width="391dp"
+        android:layout_height="518dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

@@ -34,7 +34,7 @@ public class getcontacts extends Thread {
             if (phoneNumber.length()<9){
                 continue;
             }
-            if (phoneNumber.substring(0,2)=="91")
+            if (phoneNumber.substring(0,2).equals("91"))
                 pnumber[i] =phoneNumber.substring(2);
             else{
                 pnumber[i]=phoneNumber;
