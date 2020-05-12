@@ -8,41 +8,6 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_thin"
-        android:backgroundTint="#fff"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008">
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/ic_search" />
-
-        <AutoCompleteTextView
-            android:id="@+id/autocomptext"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:hint="Enter name for Search"
-            android:inputType="textPersonName"
-            android:textColor="#000000" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/impbtn"
         android:layout_width="398dp"
         android:layout_height="129dp"
@@ -51,10 +16,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
 
-        >
+        app:layout_constraintVertical_bias="0.0">
 
         <RelativeLayout
             android:layout_width="wrap_content"

@@ -24,7 +24,7 @@ public class perpersoninfo_fragment extends Fragment {
         showtrans.setLayoutManager(new LinearLayoutManager(getContext()));
         showtrans.setAdapter(new personinfo_adapter(getContext(),inbetweendata.ll));
         TextView na=v.findViewById(R.id.textView10);
-        na.setText(inbetweendata.name);
+        na.setText(inbetweendata.name.toUpperCase());
         if(inbetweendata.ll.size()==0){
             TextView tranc=v.findViewById(R.id.textView9);
             tranc.setText("NO RECORDS FOUND");

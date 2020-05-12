@@ -123,14 +123,9 @@ public class home_fragment extends Fragment {
                         ctx,
                         LinearLayoutManager.HORIZONTAL,
                         false);
-                AutoCompleteTextView act=v.findViewById(R.id.autocomptext);
 
-                String dat[]=new String[getcontacts.dcontacts.size()];
-                int count=0;
-                for(String x:getcontacts.dcontacts.keySet()){
-                    dat[count]=x;
-                    count++;
-                }
+
+               
                // act.setAdapter(new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);

@@ -111,9 +111,10 @@ class contactsinhomeadapter extends RecyclerView.Adapter<contactsinhomeadapter.c
                                         }
                                     }
                                 }
-                                FragmentManager manager = ((AppCompatActivity)ctx).getSupportFragmentManager();
+                                FragmentManager manager = ((home)ctx).getSupportFragmentManager();
                                 manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
                                 manager.beginTransaction().addToBackStack("personinfo").commit();
+
                             }
 
                             @Override
