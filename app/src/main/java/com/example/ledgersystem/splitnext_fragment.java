@@ -50,8 +50,9 @@ public class splitnext_fragment extends Fragment {
                     dr.child(d.getName()).child("Transactions").child("give money").child(s).child(remark.getText().toString()).setValue(d.getMoney());
                 }
                 Toast.makeText(getActivity().getApplicationContext(),"Split Done",Toast.LENGTH_SHORT).show();
-                getActivity().getSupportFragmentManager().popBackStack();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().remove(new perpersoninfo_fragment());
+                getActivity().getSupportFragmentManager().popBackStack();
 
             }
         });

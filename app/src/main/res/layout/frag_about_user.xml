@@ -6,59 +6,68 @@
     android:layout_height="match_parent"
     android:visibility="visible">
 
-
-    <LinearLayout
-        android:layout_width="337dp"
-        android:layout_height="494dp"
-        android:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="313dp"
+        android:layout_height="572dp"
+        android:background="@drawable/roundcorner"
+        android:backgroundTint="#E4CECE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392"
-        android:background="@drawable/roundcorner"
-        android:backgroundTint="#F2F2F2">
+        app:layout_constraintVertical_bias="0.234">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="136dp"
-            android:layout_height="144dp"
-            android:src="@drawable/about"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16"
-            android:layout_gravity="center"/>
+            app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
-            android:layout_marginTop="30dp"
             android:id="@+id/textView"
-            android:layout_width="105dp"
-            android:layout_height="50dp"
-            android:gravity="center_horizontal"
-            android:text="Name"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.185" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="111dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center_horizontal"
-            android:text="Phone number"
+            android:layout_width="128dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="36dp"
+            android:text="TextView"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="170dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="36dp"
+            android:text="TextView"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.152"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+            app:layout_constraintVertical_bias="0.13" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="147dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="36dp"
+            android:text="TextView"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

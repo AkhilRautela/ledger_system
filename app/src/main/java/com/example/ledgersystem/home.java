@@ -99,7 +99,7 @@ public class home extends AppCompatActivity {
                 v.startAnimation(buttonClick);
                 Vibrator vv = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new notification_fragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new notification_fragment()).commit();
                 getSupportFragmentManager().beginTransaction().addToBackStack("notification").commit();
             }
         });
@@ -108,7 +108,10 @@ public class home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int l=menuItem.getItemId();
                 if(l==R.id.nav_home){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
+                    while(getSupportFragmentManager().getBackStackEntryCount()>0){
+                        getSupportFragmentManager().popBackStack();
+                    }
                 }
                 if(l==R.id.nav_logout){
                     Toast.makeText(getApplicationContext(),"Logging Out",Toast.LENGTH_SHORT);
@@ -121,7 +124,7 @@ public class home extends AppCompatActivity {
                     finish();
                 }
                 if(l==R.id.nav_about){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new about_fragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new about_fragment()).commit();
                     getSupportFragmentManager().beginTransaction().addToBackStack("about").commit();
                 }
                 drawer.closeDrawer(GravityCompat.START);

@@ -1,6 +1,7 @@
 package com.example.ledgersystem;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +9,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class general_profileAdapter extends RecyclerView.Adapter<general_profileAdapter.myHolder> {
 
@@ -38,10 +47,67 @@ public class general_profileAdapter extends RecyclerView.Adapter<general_profile
     }
 
     @Override
-    public void onBindViewHolder(@NonNull general_profileAdapter.myHolder holder, int position) {
+    public void onBindViewHolder(@NonNull general_profileAdapter.myHolder holder, final int position) {
         holder.t1.setText(names.get(position));
         TextDrawable drawable =TextDrawable.builder().buildRound(names.get(position).substring(0,1).toUpperCase(), Color.rgb(15,167,255));
         holder.cimg.setBackground(drawable);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String frname=names.get(position);
+                inbetweendata.name=frname;
+                SharedPreferences sf=ctx.getSharedPreferences("Login data",MODE_PRIVATE);
+                final String s=sf.getString("user","unable to fetch");
+                final DatabaseReference db= FirebaseDatabase.getInstance().getReference("Users");
+                db.child(s).child("Transactions").child("give money").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot dp:dataSnapshot.getChildren()){
+                            String sss=dp.getKey();
+                            for(DataSnapshot sd:dp.getChildren()){
+                                String name=sd.getKey();
+                                String money=sd.getValue().toString();
+                                System.out.println(sss+" "+name+" "+money);
+                                if (sss.equals(frname)){
+                                    inbetweendata.ll.add(new datapersoninfo(sss,money,name,"give money"));
+                                }
+                            }
+                        }
+                        db.child(s).child("Transactions").child("take money").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for(DataSnapshot dp:dataSnapshot.getChildren()){
+                                    String sss=dp.getKey();
+                                    for(DataSnapshot sd:dp.getChildren()){
+                                        String name=sd.getKey();
+                                        String money=sd.getValue().toString();
+                                        System.out.println(sss+" "+name+" "+money);
+                                        if (sss.equals(frname)){
+                                            inbetweendata.ll.add(new datapersoninfo(sss,money,name,"take money"));
+
+                                        }
+                                    }
+                                }
+                                FragmentManager manager = ((home)ctx).getSupportFragmentManager();
+                                manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
+                                manager.beginTransaction().addToBackStack("hllo").commit();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
 
     }
 
