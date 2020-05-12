@@ -197,6 +197,10 @@
         app:layout_constraintVertical_bias="0.987" />
 
     <TextView
+<<<<<<< HEAD
+        android:id="@+id/demoText_contacts"
+=======
+>>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -212,18 +216,29 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/conactinhome"
+<<<<<<< HEAD
+        android:layout_width="399dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="152dp"
+=======
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+>>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent" />
+=======
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2"
         app:layout_constraintVertical_bias="0.297" />
+>>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

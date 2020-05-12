@@ -49,7 +49,7 @@ public class splitter_adapter extends RecyclerView.Adapter<splitter_adapter.view
     public void onBindViewHolder(@NonNull splitter_adapter.viewholder holder, int position) {
         final money_split_data dat=l.get(position);
         holder.t1.setText(dat.getName());
-        TextDrawable drawable = TextDrawable.builder().buildRound(dat.getName().substring(0,1).toUpperCase(), Color.MAGENTA);
+        TextDrawable drawable = TextDrawable.builder().buildRound(dat.getName().substring(0,1).toUpperCase(), Color.rgb(15,167,255));
         holder.contactimg.setBackground(drawable);
         holder.t2.addTextChangedListener(new TextWatcher() {
             @Override
