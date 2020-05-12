@@ -51,7 +51,7 @@ public class multicontactselector_adapter extends RecyclerView.Adapter<multicont
         final listforadapter ekobject=data.get(position);
         holder.name.setText(ekobject.getName());
         holder.phoneno.setText(ekobject.getPhone());
-        TextDrawable drawable = TextDrawable.builder().buildRound(ekobject.getName().substring(0,1).toUpperCase(),Color.GREEN);
+        TextDrawable drawable = TextDrawable.builder().buildRound(ekobject.getName().substring(0,1).toUpperCase(),Color.MAGENTA);
         holder.civ.setBackground(drawable);
         if(ekobject.isIsselected()){
             holder.itemView.setBackgroundColor(Color.rgb(84,242,242));

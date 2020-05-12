@@ -8,40 +8,89 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView5"
-        android:layout_width="316dp"
-        android:layout_height="503dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Split Money "
-        android:textColor="#fff"
         android:background="@drawable/border_thin"
         android:backgroundTint="#414BAD"
+        android:text=" Split Money "
+        android:textColor="#fff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView5"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintVertical_bias="0.904" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="40dp"
+
+
+                android:text="USER"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="40dp"
+                android:gravity="end"
+                android:text="AMOUnt"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editText5"
         android:layout_width="214dp"
         android:layout_height="59dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:gravity="center"
         android:hint="Remarks"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView5"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

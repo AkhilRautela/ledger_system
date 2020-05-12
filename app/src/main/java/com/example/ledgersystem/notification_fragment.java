@@ -52,8 +52,8 @@ public class notification_fragment extends Fragment {
                     TextView t=v.findViewById(R.id.textView5);
                     t.setText("No Notification");
                 }
-                rv.setAdapter(new notification_adapter(getActivity().getApplicationContext(),ll));
-                rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+                rv.setAdapter(new notification_adapter(getContext(),ll));
+                rv.setLayoutManager(new LinearLayoutManager(getContext()));
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

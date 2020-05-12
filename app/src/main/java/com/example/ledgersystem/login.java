@@ -60,17 +60,19 @@ public class login extends AppCompatActivity {
         else
         {
             progressBar=(ProgressBar) findViewById(R.id.progressBar1);
-            progressBar.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
             DatabaseReference myRef = database.getReference("Users");
             myRef.child(name.getText().toString()).child("E_mail").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     if(dataSnapshot.getValue()==null){
+
                         Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.INVISIBLE);
                     }
                     else{
+                        progressBar.setVisibility(View.VISIBLE);
                         email = dataSnapshot.getValue().toString();
                     fauth.signInWithEmailAndPassword(email, pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -85,6 +87,7 @@ public class login extends AppCompatActivity {
                                 startActivity(i);
                                 finish();
                             } else {
+                                progressBar.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "INCORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
                             }
                         }

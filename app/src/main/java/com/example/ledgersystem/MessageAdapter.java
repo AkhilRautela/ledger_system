@@ -40,7 +40,7 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
 
         authorTextView.setText(message.getName());
 
-        TextDrawable drawable = TextDrawable.builder().buildRound(message.getName().substring(0,1).toUpperCase(), Color.GREEN);
+        TextDrawable drawable = TextDrawable.builder().buildRound(message.getName().substring(0,1).toUpperCase(), Color.MAGENTA);
         photoImageView.setBackground(drawable);
         return convertView;
     }
