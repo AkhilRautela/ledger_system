@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.392"
         android:background="@drawable/roundcorner"
-        android:backgroundTint="#E3D6D6">
+        android:backgroundTint="#F2F2F2">
 
         <ImageView
             android:id="@+id/imageView2"

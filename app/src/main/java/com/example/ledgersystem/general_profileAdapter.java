@@ -40,7 +40,7 @@ public class general_profileAdapter extends RecyclerView.Adapter<general_profile
     @Override
     public void onBindViewHolder(@NonNull general_profileAdapter.myHolder holder, int position) {
         holder.t1.setText(names.get(position));
-        TextDrawable drawable =TextDrawable.builder().buildRound(names.get(position).substring(0,1).toUpperCase(), Color.GREEN);
+        TextDrawable drawable =TextDrawable.builder().buildRound(names.get(position).substring(0,1).toUpperCase(), Color.rgb(15,167,255));
         holder.cimg.setBackground(drawable);
 
     }

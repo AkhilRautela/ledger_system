@@ -43,25 +43,29 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactlist"
-        android:layout_width="391dp"
-        android:layout_height="518dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintVertical_bias="0.459" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundcorner"
+        android:backgroundTint="@color/mainColor"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/rounded_button"
-        app:layout_constraintTop_toBottomOf="@+id/contactlist" />
+        app:layout_constraintTop_toBottomOf="@+id/contactlist"
+        app:layout_constraintVertical_bias="0.241" />
 
     <TextView
         android:id="@+id/textView7"

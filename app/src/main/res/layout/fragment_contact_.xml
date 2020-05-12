@@ -52,5 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/search_bar_contact"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:padding="20dp"/>
 </RelativeLayout>

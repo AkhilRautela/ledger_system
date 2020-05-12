@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/border_thin"
         android:backgroundTint="#fff"
         android:gravity="center"
@@ -20,7 +20,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024">
+        app:layout_constraintVertical_bias="0.008"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <Button
             android:id="@+id/button3"
@@ -34,10 +36,10 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:gravity="center"
+            android:gravity="start"
+            android:hint="Enter name for Search"
             android:inputType="textPersonName"
-            android:textColor="#000000"
-            android:hint="Enter name for Search"/>
+            android:textColor="#000000" />
 
     </LinearLayout>
 
@@ -78,7 +80,8 @@
                 android:layout_marginStart="38dp"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
-                android:text="Split BIll" />
+                android:text="Split BIll"
+                android:textColor="#000"/>
 
         </RelativeLayout>
 
@@ -104,7 +107,8 @@
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
-                android:text="Request" />
+                android:text="Request"
+                android:textColor="#000"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -129,7 +133,9 @@
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
-                android:text="Group Chat" />
+                android:text="Group Chat"
+                android:textColor="#000"
+                />
         </RelativeLayout>
 
     </LinearLayout>
@@ -146,7 +152,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/impbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/impbtn"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"/>
 
     <View
         android:id="@+id/divider"
@@ -163,25 +171,58 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recents"
+        android:textColor="#000"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/recycle_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintVertical_bias="0.517" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:backgroundTint="#050505"
+        app:layout_constraintBottom_toBottomOf="@+id/recycle_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/conactinhome"
+        app:layout_constraintVertical_bias="0.987" />
+
+    <TextView
+        android:id="@+id/demoText_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Contacts"
         android:textColor="#000"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/conactinhome"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.214" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/conactinhome"
-        android:layout_width="391dp"
-        android:layout_height="352dp"
+        android:layout_width="399dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="152dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycle_group"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

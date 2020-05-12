@@ -123,19 +123,19 @@ public class home_fragment extends Fragment {
                         ctx,
                         LinearLayoutManager.HORIZONTAL,
                         false);
-                AutoCompleteTextView act=v.findViewById(R.id.autocomptext);
-                try{
-                    Thread.sleep(5000);}
-                catch (Exception e){
-                    e.printStackTrace();
-                }
+               // AutoCompleteTextView act=v.findViewById(R.id.autocomptext);
+//                try{
+//                    Thread.sleep(5000);}
+//                catch (Exception e){
+//                    e.printStackTrace();
+//                }
                 String dat[]=new String[getcontacts.dcontacts.size()];
                 int count=0;
                 for(String x:getcontacts.dcontacts.keySet()){
                     dat[count]=x;
                     count++;
                 }
-                act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dat));
+              //  act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);
                 List<String> gnames=new ArrayList<>();
@@ -146,8 +146,8 @@ public class home_fragment extends Fragment {
                     System.out.println(ss+" "+data.get(ss));
                 }
                 RecyclerView homecontacts=v.findViewById(R.id.conactinhome);
-                homecontacts.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                homecontacts.setAdapter(new contactsinhomeadapter(getActivity().getApplicationContext(),list_hai));
+                homecontacts.setLayoutManager(new LinearLayoutManager(getContext()));
+                homecontacts.setAdapter(new contactsinhomeadapter(getContext(),list_hai));
             }
 
             @Override

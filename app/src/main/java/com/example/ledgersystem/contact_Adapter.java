@@ -52,7 +52,7 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
         final listforadapter myListobj1 =data.get(position);
         holder.t1_name.setText(myListobj1.getName());
         holder.t2_number.setText(myListobj1.getPhone());
-        TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.GREEN);
+        TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.rgb(15,167,255));
         holder.contactimg.setBackground(drawable);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +78,7 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
                 });
                 c_name.setText(myListobj1.getName());
                 c_no.setText(myListobj1.getPhone());
-                TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.GREEN);
+                TextDrawable drawable = TextDrawable.builder().buildRound(myListobj1.getName().substring(0,1).toUpperCase(), Color.rgb(15,167,255));
                 c_img.setBackground(drawable);
                 requestDialog.show();
             }
