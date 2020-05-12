@@ -122,6 +122,7 @@ public class home extends AppCompatActivity {
                 }
                 if(l==R.id.nav_about){
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new about_fragment()).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().addToBackStack("about").commit();
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
