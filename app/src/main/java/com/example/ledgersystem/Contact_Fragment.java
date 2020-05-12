@@ -100,8 +100,9 @@ public class Contact_Fragment extends Fragment {
                                 dr.child(ss).child("Transactions").child("take money").child(sst).child(remark.getText().toString()).setValue(money.getText().toString());
                                 dr.child(sst).child("Transactions").child("give money").child(ss).child(remark.getText().toString()).setValue(money.getText().toString());
                                 requestDialog.dismiss();
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
                                 getActivity().getSupportFragmentManager().popBackStack();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
+
                             }
                         });
                         c_name.setText(sst);

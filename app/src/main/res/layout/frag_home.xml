@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,13 +15,13 @@
         android:backgroundTint="#fff"
         android:gravity="center"
         android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        app:layout_constraintVertical_bias="0.008">
 
         <Button
             android:id="@+id/button3"
@@ -81,7 +80,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
                 android:text="Split BIll"
-                android:textColor="#000"/>
+                android:textColor="#000" />
 
         </RelativeLayout>
 
@@ -108,7 +107,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
                 android:text="Request"
-                android:textColor="#000"/>
+                android:textColor="#000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -134,8 +133,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="0dp"
                 android:text="Group Chat"
-                android:textColor="#000"
-                />
+                android:textColor="#000" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -147,14 +145,14 @@
         android:layout_marginTop="60dp"
         android:background="@android:color/transparent"
         android:orientation="horizontal"
-        tools:itemCount="1"
+        android:paddingLeft="20dp"
+        android:paddingBottom="10dp"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/impbtn"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"/>
+        tools:itemCount="1" />
 
     <View
         android:id="@+id/divider"
@@ -197,10 +195,6 @@
         app:layout_constraintVertical_bias="0.987" />
 
     <TextView
-<<<<<<< HEAD
-        android:id="@+id/demoText_contacts"
-=======
->>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -216,29 +210,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/conactinhome"
-<<<<<<< HEAD
-        android:layout_width="399dp"
-        android:layout_height="152dp"
-        android:layout_marginBottom="152dp"
-=======
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="393dp"
+        android:layout_height="327dp"
         android:layout_marginTop="10dp"
->>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toStartOf="parent" />
-=======
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2"
-        app:layout_constraintVertical_bias="0.297" />
->>>>>>> 61bc71268f6eae192b1646ac512f290f6abcdfbe
+        app:layout_constraintVertical_bias="0.789" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
