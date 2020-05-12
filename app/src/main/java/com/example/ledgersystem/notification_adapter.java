@@ -37,7 +37,7 @@ public class notification_adapter extends RecyclerView.Adapter<notification_adap
     public void onBindViewHolder(@NonNull notification_adapter.notiholder holder, int position) {
         notification_data obj = data.get(position);
         holder.t2.setText(obj.getRemark());
-        holder.t1.setText(obj.getFrom()+" REQUESTED "+obj.getMsg());
+        holder.t1.setText(obj.getFrom().toUpperCase()+" REQUESTED "+obj.getMsg());
     }
 
     @Override
