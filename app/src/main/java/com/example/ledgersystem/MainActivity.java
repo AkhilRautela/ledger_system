@@ -56,11 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         },  2000);
 
-        try {
-            g.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 

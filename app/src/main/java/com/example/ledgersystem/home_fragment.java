@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -123,17 +124,30 @@ public class home_fragment extends Fragment {
                         LinearLayoutManager.HORIZONTAL,
                         false);
                 AutoCompleteTextView act=v.findViewById(R.id.autocomptext);
+                try{
+                    Thread.sleep(5000);}
+                catch (Exception e){
+                    e.printStackTrace();
+                }
                 String dat[]=new String[getcontacts.dcontacts.size()];
                 int count=0;
                 for(String x:getcontacts.dcontacts.keySet()){
                     dat[count]=x;
                     count++;
-                    System.out.println(count+" "+x);
                 }
                 act.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);
                 List<String> gnames=new ArrayList<>();
+                final Map<String, String> data = getcontacts.dcontacts;
+                List<listforadapter> list_hai = new ArrayList<>();
+                for (String ss : data.keySet()) {
+                    list_hai.add(new listforadapter(ss, data.get(ss)));
+                    System.out.println(ss+" "+data.get(ss));
+                }
+                RecyclerView homecontacts=v.findViewById(R.id.conactinhome);
+                homecontacts.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+                homecontacts.setAdapter(new contactsinhomeadapter(getActivity().getApplicationContext(),list_hai));
             }
 
             @Override
@@ -141,18 +155,9 @@ public class home_fragment extends Fragment {
 
             }
         });
+
         return v;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-
-
-
-
-
-
-    }
 }
