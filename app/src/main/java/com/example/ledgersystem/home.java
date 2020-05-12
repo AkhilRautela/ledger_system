@@ -109,9 +109,7 @@ public class home extends AppCompatActivity {
                 int l=menuItem.getItemId();
                 if(l==R.id.nav_home){
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
-                    while(getSupportFragmentManager().getBackStackEntryCount()>0){
-                        getSupportFragmentManager().popBackStack();
-                    }
+
                 }
                 if(l==R.id.nav_logout){
                     Toast.makeText(getApplicationContext(),"Logging Out",Toast.LENGTH_SHORT);
@@ -125,7 +123,6 @@ public class home extends AppCompatActivity {
                 }
                 if(l==R.id.nav_about){
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new about_fragment()).commit();
-                    getSupportFragmentManager().beginTransaction().addToBackStack("about").commit();
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;

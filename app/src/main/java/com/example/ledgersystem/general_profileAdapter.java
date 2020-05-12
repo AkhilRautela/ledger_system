@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -54,6 +55,7 @@ public class general_profileAdapter extends RecyclerView.Adapter<general_profile
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inbetweendata.ll=new ArrayList<>();
                 final String frname=names.get(position);
                 inbetweendata.name=frname;
                 SharedPreferences sf=ctx.getSharedPreferences("Login data",MODE_PRIVATE);
@@ -73,31 +75,7 @@ public class general_profileAdapter extends RecyclerView.Adapter<general_profile
                                 }
                             }
                         }
-                        db.child(s).child("Transactions").child("take money").addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for(DataSnapshot dp:dataSnapshot.getChildren()){
-                                    String sss=dp.getKey();
-                                    for(DataSnapshot sd:dp.getChildren()){
-                                        String name=sd.getKey();
-                                        String money=sd.getValue().toString();
-                                        System.out.println(sss+" "+name+" "+money);
-                                        if (sss.equals(frname)){
-                                            inbetweendata.ll.add(new datapersoninfo(sss,money,name,"take money"));
 
-                                        }
-                                    }
-                                }
-                                FragmentManager manager = ((home)ctx).getSupportFragmentManager();
-                                manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
-                                manager.beginTransaction().addToBackStack("hllo").commit();
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
 
                     }
 
@@ -106,6 +84,32 @@ public class general_profileAdapter extends RecyclerView.Adapter<general_profile
 
                     }
                 });
+                db.child(s).child("Transactions").child("take money").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot dp:dataSnapshot.getChildren()){
+                            String sss=dp.getKey();
+                            for(DataSnapshot sd:dp.getChildren()){
+                                String name=sd.getKey();
+                                String money=sd.getValue().toString();
+                                System.out.println(sss+" "+name+" "+money);
+                                if (sss.equals(frname)){
+                                    inbetweendata.ll.add(new datapersoninfo(sss,money,name,"take money"));
+
+                                }
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                FragmentManager manager = ((home)ctx).getSupportFragmentManager();
+                manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
+                manager.beginTransaction().addToBackStack("hllo").commit();
             }
         });
 

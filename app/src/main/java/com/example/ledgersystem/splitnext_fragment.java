@@ -51,8 +51,6 @@ public class splitnext_fragment extends Fragment {
                 }
                 Toast.makeText(getActivity().getApplicationContext(),"Split Done",Toast.LENGTH_SHORT).show();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
-                getActivity().getSupportFragmentManager().beginTransaction().remove(new perpersoninfo_fragment());
-                getActivity().getSupportFragmentManager().popBackStack();
 
             }
         });

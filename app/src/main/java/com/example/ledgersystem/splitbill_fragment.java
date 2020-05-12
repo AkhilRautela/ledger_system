@@ -75,8 +75,9 @@ public class splitbill_fragment extends Fragment {
                 selectedsplitdata.i=0;
                 selectedsplitdata.names=new String[1000];
                 selectedsplitdata s= new selectedsplitdata(li);
-                System.out.println(getActivity().getSupportFragmentManager().getBackStackEntryCount());
+                System.out.println("gsss "+getActivity().getSupportFragmentManager().getBackStackEntryCount());
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitnext_fragment()).commit();
+
             }
         });
         return  split;

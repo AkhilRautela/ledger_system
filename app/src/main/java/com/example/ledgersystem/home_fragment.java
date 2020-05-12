@@ -46,7 +46,9 @@ public class home_fragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+
         final View v= inflater.inflate(R.layout.frag_home, container, false);
+
         LinearLayout l=v.findViewById(R.id.impbtn);
         spl=l.findViewById(R.id.spl);
         req=l.findViewById(R.id.req);
@@ -68,7 +70,7 @@ public class home_fragment extends Fragment {
                 Vibrator vv = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 vv.vibrate(100);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new splitbill_fragment()).commit();
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("hii").commit();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("splitbill").commit();
                 Toast.makeText(getActivity().getApplicationContext(),"Split Bill",Toast.LENGTH_SHORT).show();
 
             }
