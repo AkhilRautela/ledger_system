@@ -68,7 +68,7 @@ public class home extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_hu_container,new home_fragment()).commit();
         SharedPreferences sf=getSharedPreferences("Login data",MODE_PRIVATE);
         s=sf.getString("user","unable to fetch");
         drawer = findViewById(R.id.drawer_layout);
