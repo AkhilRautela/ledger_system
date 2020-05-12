@@ -174,8 +174,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/conactinhome"
-        android:layout_width="393dp"
-        android:layout_height="327dp"
+        android:layout_width="397dp"
+        android:layout_height="371dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"

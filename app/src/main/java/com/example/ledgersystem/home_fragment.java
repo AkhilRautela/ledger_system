@@ -125,7 +125,7 @@ public class home_fragment extends Fragment {
                         false);
 
 
-               
+
                // act.setAdapter(new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);
