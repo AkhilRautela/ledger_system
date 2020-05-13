@@ -113,7 +113,7 @@ public class home extends AppCompatActivity {
                 }
                 if(l==R.id.nav_logout){
                     Toast.makeText(getApplicationContext(),"Logging Out",Toast.LENGTH_SHORT);
-                    SharedPreferences sf=getSharedPreferences("Login Data",MODE_PRIVATE);
+                    SharedPreferences sf=getSharedPreferences("Login data",MODE_PRIVATE);
                     SharedPreferences.Editor edit=sf.edit();
                     edit.putInt("islogged",0);
                     edit.commit();

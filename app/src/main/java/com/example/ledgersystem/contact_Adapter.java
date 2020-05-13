@@ -4,9 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -57,6 +59,10 @@ public class contact_Adapter extends RecyclerView.Adapter<contact_Adapter.contac
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                v.startAnimation(buttonClick);
+                Vibrator vv = (Vibrator)ctx.getSystemService(Context.VIBRATOR_SERVICE);
+                vv.vibrate(100);
                 requestDialog = new Dialog(ctx);
                 requestDialog.setContentView(R.layout.dialog_req);
                 final TextView c_name = (TextView)requestDialog.findViewById(R.id.dialog_name_d);

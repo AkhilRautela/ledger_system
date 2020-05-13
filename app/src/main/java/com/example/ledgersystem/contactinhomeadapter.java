@@ -4,9 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -78,6 +80,10 @@ class contactsinhomeadapter extends RecyclerView.Adapter<contactsinhomeadapter.c
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+                v.startAnimation(buttonClick);
+                Vibrator vv = (Vibrator)ctx.getSystemService(Context.VIBRATOR_SERVICE);
+                vv.vibrate(100);
                 inbetweendata.name=myListobj1.getName();
                 FragmentManager manager = ((home)ctx).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
