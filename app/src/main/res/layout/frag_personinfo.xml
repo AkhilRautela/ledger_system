@@ -35,14 +35,28 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alltransactions"
-        android:layout_width="399dp"
-        android:layout_height="634dp"
+        android:layout_width="394dp"
+        android:layout_height="573dp"
         android:backgroundTint="#F5F5F5"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/textView14"
+        android:layout_width="287dp"
+        android:layout_height="33dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3E3535"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alltransactions" />
 </androidx.constraintlayout.widget.ConstraintLayout>
