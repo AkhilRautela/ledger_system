@@ -35,8 +35,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alltransactions"
-        android:layout_width="352dp"
-        android:layout_height="624dp"
+        android:layout_width="399dp"
+        android:layout_height="634dp"
         android:backgroundTint="#F5F5F5"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
