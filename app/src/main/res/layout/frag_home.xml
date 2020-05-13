@@ -148,44 +148,49 @@
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"
         android:background="#000000"
         android:backgroundTint="#050505"
-        app:layout_constraintBottom_toBottomOf="@+id/recycle_group"
+        app:layout_constraintBottom_toTopOf="@+id/demo_recycler_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/conactinhome"
-        app:layout_constraintVertical_bias="0.987" />
+        app:layout_constraintTop_toBottomOf="@+id/recycle_group" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/demo_recycler_vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Contacts"
-        android:textColor="#000"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/conactinhome"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
-        app:layout_constraintVertical_bias="0.214" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/conactinhome"
-        android:layout_width="397dp"
-        android:layout_height="371dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintTop_toBottomOf="@+id/recycle_group">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Contacts"
+            android:textColor="#000"
+            android:textSize="18dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/conactinhome"
+            android:layout_width="match_parent"
+            android:layout_height="351dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp" />
+
+    </RelativeLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
