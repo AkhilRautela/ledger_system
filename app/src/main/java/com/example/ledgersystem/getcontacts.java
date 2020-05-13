@@ -41,24 +41,18 @@ public class getcontacts extends Thread {
             }
             i++;
         }
+        System.out.println("Total Contacts "+i);
         DatabaseReference df = FirebaseDatabase.getInstance().getReference("Phonenumbers");
-
-        for ( j = 0; j < i; j++) {
-            System.out.println(i);
-            System.out.println(j);
-            System.out.println(pnumber[j]);
-            final String num=pnumber[j];
-            df.child(pnumber[j]).addValueEventListener(new ValueEventListener() {
+            df.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.getValue()!=null){
-                        name=dataSnapshot.getValue().toString();
-                        System.out.println(name);
-                        dcontacts.put(name,num);
-                        System.out.println(num);
+                    for ( j = 0; j < i; j++) {
+                        System.out.println(pnumber[j]);
+                        if (dataSnapshot.child(pnumber[j]).getValue() != null) {
+                            dcontacts.put(dataSnapshot.child(pnumber[j]).getValue().toString(),pnumber[j]);
+                            System.out.println("fetched "+pnumber[j]+" "+dataSnapshot.child(pnumber[j]).getValue().toString());
+                        }
                     }
-
-
                 }
 
                 @Override
@@ -67,7 +61,7 @@ public class getcontacts extends Thread {
                 }
             });
 
-        }
+
 
     }
 }
