@@ -35,13 +35,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alltransactions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_width="352dp"
+        android:layout_height="624dp"
         android:backgroundTint="#F5F5F5"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.384" />
 </androidx.constraintlayout.widget.ConstraintLayout>
