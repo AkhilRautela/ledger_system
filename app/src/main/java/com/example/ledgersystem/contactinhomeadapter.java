@@ -78,58 +78,7 @@ class contactsinhomeadapter extends RecyclerView.Adapter<contactsinhomeadapter.c
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inbetweendata.ll=new ArrayList<>();
-                final String frname=myListobj1.getName();
-                inbetweendata.name=frname;
-                SharedPreferences sf=ctx.getSharedPreferences("Login data",MODE_PRIVATE);
-                final String s=sf.getString("user","unable to fetch");
-                final DatabaseReference db=FirebaseDatabase.getInstance().getReference("Users");
-                db.child(s).child("Transactions").child("give money").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot dp:dataSnapshot.getChildren()){
-                            String sss=dp.getKey();
-                            for(DataSnapshot sd:dp.getChildren()){
-                                String name=sd.getKey();
-                                String money=sd.getValue().toString();
-                                System.out.println(sss+" "+name+" "+money);
-                                if (sss.equals(frname)){
-                                    inbetweendata.ll.add(new datapersoninfo(sss,money,name,"give money"));
-                                }
-                            }
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-                db.child(s).child("Transactions").child("take money").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot dp:dataSnapshot.getChildren()){
-                            String sss=dp.getKey();
-                            for(DataSnapshot sd:dp.getChildren()){
-                                String name=sd.getKey();
-                                String money=sd.getValue().toString();
-                                System.out.println(sss+" "+name+" "+money);
-                                if (sss.equals(frname)){
-                                    inbetweendata.ll.add(new datapersoninfo(sss,money,name,"take money"));
-
-                                }
-                            }
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
+                inbetweendata.name=myListobj1.getName();
                 FragmentManager manager = ((home)ctx).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.main_hu_container,new perpersoninfo_fragment()).commit();
                 manager.beginTransaction().addToBackStack("personinfo").commit();

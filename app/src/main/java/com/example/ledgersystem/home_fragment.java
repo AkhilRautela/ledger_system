@@ -131,7 +131,6 @@ public class home_fragment extends Fragment {
                // act.setAdapter(new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,dat));
                 recycle_groups.setLayoutManager(HorizontalLayout);
                 recycle_groups.setAdapter(general_profileadapter);
-                List<String> gnames=new ArrayList<>();
                 final Map<String, String> data = getcontacts.dcontacts;
                 List<listforadapter> list_hai = new ArrayList<>();
                 for (String ss : data.keySet()) {
