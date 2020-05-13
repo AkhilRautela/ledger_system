@@ -81,7 +81,7 @@ public class perpersoninfo_fragment extends Fragment {
                             total.setText("You have to take "+abs(count));
                         }
                         else{
-                            total.setText("You have to give"+abs(count));
+                            total.setText("You have to give "+abs(count));
                         }
                         showtrans.setLayoutManager(new LinearLayoutManager(getContext()));
                         personinfo_adapter pia=new personinfo_adapter(getContext(),inbetweendata.ll);
