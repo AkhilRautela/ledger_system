@@ -2,6 +2,7 @@ package com.example.ledgersystem;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.amulyakhare.textdrawable.TextDrawable;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -58,6 +60,11 @@ public class group_chat extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_group_chat, container, false);
 
+        SharedPreferences sf = getActivity().getSharedPreferences("Login data", Context.MODE_PRIVATE);
+        String s = sf.getString("user","unable to fetch");
+        ImageButton ib =rootView.findViewById(R.id.photoPickerButton);
+        TextDrawable td=TextDrawable.builder().buildRect(s.substring(0,1).toUpperCase(), Color.rgb(10,123,14));
+        ib.setBackground(td);
 
 
         mdatabase = FirebaseDatabase.getInstance();
